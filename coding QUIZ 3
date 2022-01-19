@@ -1,0 +1,196 @@
+package QUIZ3;
+
+import java.util.Scanner;
+
+public class quiz3 {
+
+	static Scanner scan = new Scanner (System.in);
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		
+		
+		 int sz, menu;
+		
+	      
+		 System.out.print("PLEASE ENTER THE SIZE OF ARRAY: ");
+	        
+		 sz = scan.nextInt();
+	        
+		 int[] array = new int[sz];
+	        
+	        
+	       
+		 do 
+	        
+		 {
+	            
+			 System.out.println("\n=====MENU===== ");
+	         
+			 System.out.println("\n1. READ A ARRAY");
+	         
+			 System.out.println("\n2. DISPLAY ELEMENT ARRAY Display");
+	         
+			 System.out.println("\n3. SEARCH THE ELEMENT");
+	         
+			 System.out.println("\n4. SORT THE ELEMENTS");
+	         
+			 System.out.println("\n5. END THE SYSTEM");
+	         
+			 System.out.print("\nPLEASE CHOOSE ONE IN THE MENU: ");
+	           
+			 menu = scan.nextInt();
+	        
+	           
+			 switch (menu) 
+	           
+			 {
+	              
+			 case 1:
+	                   
+				 readArray(array);
+	                    
+				 break;
+	               
+			 case 2:
+	                    
+				 displayArray(array);
+	                   
+				 break;
+	                
+			 case 3:
+	                    
+				 System.out.print("\nPLEASE CHOOSE THE NUMBER IN THE MENU: ");
+	             
+				 int item = scan.nextInt();
+	             
+				 int index = searchArray(array, item);
+	             
+				 if (index == -1) 
+	             
+				 {
+	             
+					 System.out.println("\nSORRY");
+	                 
+				 }
+	             
+				 else 
+	             
+				 {
+	             
+					 System.out.println("\nITEM IS FOUND " + (index + 1));
+	                 
+				 }
+	             
+				 break;
+	             
+			 case 4:
+	         
+				 System.out.println("\nSORT THE ARRAY :");
+	        
+				 sortArray(array);
+	             
+				 displayArray(array);
+	             
+				 break;
+	         
+			 }
+			 
+	        
+		 } while (menu != 5);
+	   
+	}
+	    
+	
+	static void readArray(int[] array) 
+	
+	{
+	
+		System.out.println("\nPLEASE ENTER ARRAY:");
+	    
+		for (int x = 0; x < array.length; x++)
+	    
+		{
+	    
+			array[x] = scan.nextInt();
+	        
+		}
+	    
+	}
+
+
+	static void displayArray(int[] array) 
+	
+	{
+	
+		System.out.println("\nYOUR ARRAY :");
+	    
+		for (int z = 0; z < array.length; z++)
+	    
+		{
+	    
+			System.out.print(array[z] + " ");
+	        
+		
+		}
+	    
+		System.out.println();
+	    
+	}
+
+	
+	
+	static int searchArray(int[] array, int data) 
+	
+	{
+	
+		System.out.println("\nSEARCH THE ARRAY :");
+	    
+		for (int y = 0; y < array.length; y++)
+	    
+		{
+	    
+			if(array[y] == data)
+	        
+			{
+	        
+				return y;
+	            
+			}
+	        
+		}        
+	    
+		return -1;
+	    
+	}
+	    
+	
+	static void sortArray(int[] array) 
+	
+	{
+	
+		
+	    
+		for (int a = 0; a < array.length - 1; a++)
+	        {
+	    
+			for(int b = 0; b < array.length -b-1; b++)
+	        
+			{
+	                if(array[b] > array[b+1])
+	        
+	                {
+	                
+	                	int temp = array[b];
+	                    
+	                	array[b] = array[b+1];
+	                    
+	                	array[b+1] = temp;
+	                
+	                }
+	            }
+			
+	        }          
+	    }
+	}
